@@ -6,6 +6,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons"
 import Contacto from '../views/Contacto'
 import QSM from "../views/QSM"
+import Error404 from "../views/Error404"
+import Home from "../views/Home"
+import Registro from "../views/Registro"
 
 const NavBar = ()=> {
     return(
@@ -36,11 +39,20 @@ const NavBar = ()=> {
                     </Container>
                 </Navbar>
                 <Switch>
+                    <Route exact path='/'>
+                        <Home />
+                    </Route>
                     <Route path='/contacto'>
                         <Contacto />
                     </Route>
                     <Route path='/qsm'>
                         <QSM />
+                    </Route>
+                    <Route path='/registro'>
+                        <Registro />
+                    </Route>
+                    <Route path='*'>
+                        <Error404 />
                     </Route>
                 </Switch>
             </div>

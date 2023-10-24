@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 const QSM = ()=> {
     return(
-        <Container>
+        <Container fluid className="bg-info">
             <h1 className="text-center">¿Quienes Somos?</h1>
             <Row>
                 <Col>
