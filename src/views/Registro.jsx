@@ -17,7 +17,9 @@ const Registro = ()=> {
                         <Input type='email' placeholder='Correo' />
                         <Input type='password' placeholder='Contraseña' />
                         <Check_box mensaje='Acepto Terminos y Condiciones' />
-                        <Boton variante='success' texto='Registrarse' />
+                        <Row>
+                            <Boton variante='success' texto='Registrarse' />
+                        </Row>
                     </Form>
                 </Col>
             </Row>

@@ -9,6 +9,9 @@ import QSM from "../views/QSM"
 import Error404 from "../views/Error404"
 import Home from "../views/Home"
 import Registro from "../views/Registro"
+import LogIn from "../views/LogIn"
+import Productos from '../views/Productos'
+import TyC from "../views/TyC"
 
 const NavBar = ()=> {
     return(
@@ -25,6 +28,7 @@ const NavBar = ()=> {
                             <Nav className="me-auto">
                                 <Nav.Link as={Link} to='/qsm'>Quines Somos</Nav.Link>
                                 <Nav.Link as={Link} to='/contacto'>Contacto</Nav.Link>
+                                <Nav.Link as={Link} to='/productos'>Productos</Nav.Link>
                             </Nav>
                             <Nav>
                                 <NavDropdown title='Usuario' id="collasible-nav-dropdown">
@@ -50,6 +54,15 @@ const NavBar = ()=> {
                     </Route>
                     <Route path='/registro'>
                         <Registro />
+                    </Route>
+                    <Route path='/login'>
+                        <LogIn />
+                    </Route>
+                    <Route path='/productos'>
+                        <Productos />
+                    </Route>
+                    <Route path='/tyc'>
+                        <TyC />
                     </Route>
                     <Route path='*'>
                         <Error404 />
