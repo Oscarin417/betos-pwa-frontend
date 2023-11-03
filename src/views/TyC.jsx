@@ -39,9 +39,6 @@ const TyC = () => {
               <p>
                 Estos Términos se regirán e interpretarán de acuerdo con las leyes de la República Mexicana.
               </p>
-              <p>
-                <Button onClick={handleAgree}>Estoy de acuerdo</Button>
-              </p>
             </CardBody>
           </Card>
         </Col>

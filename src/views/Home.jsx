@@ -10,7 +10,7 @@ const Home = ()=> {
                     <h2 className="text-center">Tu aliado, tu solucion</h2>
                 </Col>
                 <Col>
-                    <Image src={Logo} alt="logo" rounded />
+                    <Image src={Logo} alt="logo" rounded className="img-fluid object-fit=cover" />
                 </Col>
             </Row>
         </Container>
