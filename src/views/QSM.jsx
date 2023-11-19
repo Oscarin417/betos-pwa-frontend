@@ -1,13 +1,14 @@
 import { Container, Row, Col } from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css'
+import '../assets/css/base.css'
 
 const QSM = ()=> {
     return(
-        <Container fluid className="bg-info">
-            <h1 className="text-center">¿Quienes Somos?</h1>
+        <Container fluid className="contenedor">
+            <h1 className="text-center texto">¿Quienes Somos?</h1>
             <Row>
                 <Col>
-                    <p>
+                    <p className="texto">
                         BETO'S es tu tienda de cosméticos de confianza. Fundada y establecida en Acámbaro, Guanajuato, BETO'S se enorgullece de ser una empresa 100% mexicana que ha florecido en la industria de la belleza. 
                         Desde nuestra humilde sede en Guanajuato, 
                         hemos estado comprometidos en atender las crecientes necesidades del mercado mexicano en el emocionante mundo de los productos de belleza.
@@ -16,23 +17,23 @@ const QSM = ()=> {
             </Row>
             <Row>
                 <Col>
-                    <h2 className="text-center">Vision</h2>
-                    <p>
+                    <h2 className="text-center texto">Vision</h2>
+                    <p className="texto">
                         Nuestra visión en BETO'S es convertirnos en la tienda de cosméticos líder a nivel nacional, 
                         reconocida por nuestros clientes como la mejor opción para encontrar los productos más innovadores, 
                         naturales y sostenibles, siempre ofreciendo un servicio excepcional.
                         </p>
                 </Col>
                 <Col>
-                    <h2 className="text-center">Mision</h2>
-                    <p>
+                    <h2 className="text-center texto">Mision</h2>
+                    <p className="texto">
                         Nuestra misión en BETO'S es brindar a nuestros clientes una amplia gama de productos cosméticos de alta calidad, 
                         promoviendo la belleza y la confianza en sí mismos, mientras cuidamos y respetamos el medio ambiente.
                     </p>
                 </Col>
                 <Col>
-                    <h2 className="text-center">Valores</h2>
-                    <ul>
+                    <h2 className="text-center texto">Valores</h2>
+                    <ul className="texto">
                         <li><b>Calidad:</b> Nos esforzamos por ofrecer solo productos cosméticos de la más alta calidad, seleccionados cuidadosamente para satisfacer las necesidades de nuestros clientes.</li>
                         <li><b>Innovación:</b> Buscamos constantemente nuevas tendencias y avances en la industria de la belleza para brindar a nuestros clientes opciones vanguardistas.</li>
                         <li><b>Sostenibilidad:</b> Nos comprometemos a promover y ofrecer productos respetuosos con el medio ambiente, contribuyendo así a la conservación del planeta.</li>

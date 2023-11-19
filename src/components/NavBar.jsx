@@ -6,6 +6,7 @@ import Logo from '../betosLogo.jpg'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons"
 import Button from './Buton'
+import { useAuth0 } from "@auth0/auth0-react"
 
 const NavBar = ()=> {
     const [isReadyForInstall, setIsReadyForInstall] = useState(false);
@@ -41,8 +42,10 @@ const NavBar = ()=> {
         // Hide the install button.
         setIsReadyForInstall(false);
     }
+
+    const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0()
     return(
-        <Navbar collapseOnSelect expand="lg" bg="primary" data-bs-theme="dark">
+        <Navbar collapseOnSelect expand="lg" bg="dark" data-bs-theme="dark">
             <Container>
                 <Navbar.Brand as={Link} to='/'>
                     <img src={Logo} alt="logo" width="30" className="d-inline-block align-top" />
@@ -51,18 +54,27 @@ const NavBar = ()=> {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
+                        
+                    </Nav>
+                    <Nav>
                         <Nav.Link as={Link} to='/qsm'>Quines Somos</Nav.Link>
                         <Nav.Link as={Link} to='/contacto'>Contacto</Nav.Link>
                         <Nav.Link as={Link} to='/productos'>Productos</Nav.Link>
-                    </Nav>
-                    <Nav>
-                        <NavDropdown title='Usuario' id="collasible-nav-dropdown">
-                            <NavDropdown.Item as={Link} to='/login'>LogIn</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to='/registro'>Registro</NavDropdown.Item>
+                        {isAuthenticated ?(
+                            <NavDropdown title={user.name} id="collasible-nav-dropdown">
+                                <NavDropdown.Item as={Link} to='/perfil'>Perfil</NavDropdown.Item>
+                                <NavDropdown.Item onClick={()=> logout()}>Logout</NavDropdown.Item>
                                 {isReadyForInstall && (
                                     <Button variante='primary' texto='Descargar App' onClick={downloadApp} />
                                 )}
-                        </NavDropdown>
+                            </NavDropdown>
+                        ):
+                        <NavDropdown title='Usuario' id="collasible-nav-dropdown">
+                            <NavDropdown.Item onClick={()=> loginWithRedirect()}>Login</NavDropdown.Item>
+                                {isReadyForInstall && (
+                                    <Button variante='primary' texto='Descargar App' onClick={downloadApp} />
+                                )}
+                        </NavDropdown>}
                         <Nav.Link as={Link} to='/cart'>
                             <FontAwesomeIcon icon={faCartShopping} />
                         </Nav.Link>

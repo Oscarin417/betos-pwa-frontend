@@ -5,12 +5,24 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration"
+import { Auth0Provider } from '@auth0/auth0-react'
+
+const dominio = process.env.REACT_APP_AUTH0_DOMAIN
+const cliente = process.env.REACT_APP_AUT0_CLIENT_ID
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <Auth0Provider
+        clientId={cliente}
+        domain={dominio}
+        authorizationParams={{
+          redirect_uri: window.location.origin
+        }}
+      >
+        <App />
+      </Auth0Provider>
     </BrowserRouter>
   </React.StrictMode>
 );

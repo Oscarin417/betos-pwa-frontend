@@ -1,5 +1,6 @@
 import React, { useState } from "react"
-import { Container, Row, Col, Card, CardBody, Button } from "react-bootstrap"
+import { Container, Row, Col, Card, CardBody } from "react-bootstrap"
+import '../assets/css/base.css'
 
 const TyC = () => {
   const [isAgreed, setIsAgreed] = useState(false)
@@ -9,11 +10,11 @@ const TyC = () => {
   };
 
   return (
-    <Container fluid className="bg-info">
+    <Container fluid className="contenedor">
       <Row>
         <Col md={12}>
           <Card>
-            <CardBody>
+            <CardBody className="texto">
               <h1>Términos y condiciones</h1>
               <p>
                 Estos términos y condiciones rigen el uso de este sitio web  y los servicios ofrecidos en este Sitio por Beto's Cosmetics.

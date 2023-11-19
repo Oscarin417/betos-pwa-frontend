@@ -1,0 +1,12 @@
+.contenedor{
+    background-image: url('../images/cosmeticos.jpg');
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+.texto{
+    background-color: rgb(255,255,255,0.75);
+}

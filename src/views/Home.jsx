@@ -1,16 +1,22 @@
 import { Container, Col, Row, Image } from "react-bootstrap"
 import Logo from '../betosLogo.jpg'
+import '../assets/css/base.css'
 
 const Home = ()=> {
     return(
-        <Container fluid className='bg-info'>
+        <Container fluid className='contenedor'>
             <Row className='align-items-center'>
-                <Col className="mx-auto">
+                <Col className="mx-auto texto">
                     <h2 className="text-center">BETO'S</h2>
                     <h2 className="text-center">Tu aliado, tu solucion</h2>
                 </Col>
                 <Col>
-                    <Image src={Logo} alt="logo" rounded className="img-fluid object-fit=cover" />
+                    <Image 
+                        src={Logo} 
+                        alt="logo" 
+                        rounded 
+                        className="img-fluid object-fit=cover" 
+                    />
                 </Col>
             </Row>
         </Container>
