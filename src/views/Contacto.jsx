@@ -7,20 +7,23 @@ import Alerta from '../components/Alerta'
 import '../assets/css/base.css'
 import { Container, Row, Col } from 'react-bootstrap'
 import { createContacto } from '../api/api'
+import toast, {Toaster} from 'react-hot-toast'
 
 const Contacto = ()=> {
-    const {register, handleSubmit, formState: {
+    const {register, handleSubmit, reset, formState: {
         errors
     }} = useForm()
 
     const enviarDatos = handleSubmit(async data => {
         const res = await createContacto(data)
         console.log(res)
+        toast.success('Su mensaje fue enviado con éxito')
+        reset()
 })
 
     return(
         <Container fluid className='contenedor'>
-            <h2 className='text-center texto'>¡Contactanos!</h2>
+            <h2 className='text-center texto'>¡CONTACTANOS!</h2>
             <Row>
                 <Col xs={12} sm={6} texto>
                     <form onSubmit={enviarDatos}>
@@ -64,6 +67,10 @@ const Contacto = ()=> {
                         />
                         {errors.condiciones && <Alerta variante='danger' mensaje='Este campo es requerido' />}
                         <Boton variante='success' texto='Enviar' />
+                        <Toaster
+                            position="top-center"
+                            reverseOrder={false}
+                        />
                     </form>
                 </Col>
                 <Col xs={12} sm={6}>

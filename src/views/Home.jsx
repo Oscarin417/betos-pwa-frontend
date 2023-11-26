@@ -8,7 +8,7 @@ const Home = ()=> {
             <Row className='align-items-center'>
                 <Col className="mx-auto texto">
                     <h2 className="text-center">BETO'S</h2>
-                    <h2 className="text-center">Tu aliado, tu solucion</h2>
+                    <h2 className="text-center">Tu aliado, tu solución</h2>
                 </Col>
                 <Col>
                     <Image 
@@ -16,6 +16,7 @@ const Home = ()=> {
                         alt="logo" 
                         rounded 
                         className="img-fluid object-fit=cover" 
+                        loading="lazy"
                     />
                 </Col>
             </Row>

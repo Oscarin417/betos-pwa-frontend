@@ -15,7 +15,7 @@ const TyC = () => {
         <Col md={12}>
           <Card>
             <CardBody className="texto">
-              <h1>Términos y condiciones</h1>
+              <h1>TÉRMINOS Y CONDICIONES</h1>
               <p>
                 Estos términos y condiciones rigen el uso de este sitio web  y los servicios ofrecidos en este Sitio por Beto's Cosmetics.
               </p>

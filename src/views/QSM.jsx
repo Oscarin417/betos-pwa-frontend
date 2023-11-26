@@ -5,7 +5,7 @@ import '../assets/css/base.css'
 const QSM = ()=> {
     return(
         <Container fluid className="contenedor">
-            <h1 className="text-center texto">¿Quienes Somos?</h1>
+            <h1 className="text-center texto">¿QUIÉNES SOMOS?</h1>
             <Row>
                 <Col>
                     <p className="texto">
@@ -17,22 +17,22 @@ const QSM = ()=> {
             </Row>
             <Row>
                 <Col>
-                    <h2 className="text-center texto">Vision</h2>
+                    <h2 className="text-center texto">VISIÓN</h2>
                     <p className="texto">
                         Nuestra visión en BETO'S es convertirnos en la tienda de cosméticos líder a nivel nacional, 
                         reconocida por nuestros clientes como la mejor opción para encontrar los productos más innovadores, 
                         naturales y sostenibles, siempre ofreciendo un servicio excepcional.
-                        </p>
+                    </p>
                 </Col>
                 <Col>
-                    <h2 className="text-center texto">Mision</h2>
+                    <h2 className="text-center texto">MISIÓN</h2>
                     <p className="texto">
                         Nuestra misión en BETO'S es brindar a nuestros clientes una amplia gama de productos cosméticos de alta calidad, 
                         promoviendo la belleza y la confianza en sí mismos, mientras cuidamos y respetamos el medio ambiente.
                     </p>
                 </Col>
                 <Col>
-                    <h2 className="text-center texto">Valores</h2>
+                    <h2 className="text-center texto">VALORES</h2>
                     <ul className="texto">
                         <li><b>Calidad:</b> Nos esforzamos por ofrecer solo productos cosméticos de la más alta calidad, seleccionados cuidadosamente para satisfacer las necesidades de nuestros clientes.</li>
                         <li><b>Innovación:</b> Buscamos constantemente nuevas tendencias y avances en la industria de la belleza para brindar a nuestros clientes opciones vanguardistas.</li>

@@ -11,17 +11,3 @@ export const getAllProductos = ()=> {
 export const createContacto = (contacto)=> {
     return api.post('/contactos/api/', contacto)
 }
-
-export const logIn = async (credentials) => {
-    try {
-        const response = await api.post('/usuarios/api/login/', credentials);
-        return response;
-    } catch (error) {
-        throw error;
-    }
-};
-
-
-export const createUsuario = (usuario)=> {
-    return api.post('/usuarios/api/', usuario)
-}

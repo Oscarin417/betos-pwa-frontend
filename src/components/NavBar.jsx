@@ -5,8 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Logo from '../betosLogo.jpg'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons"
-import Button from './Buton'
 import { useAuth0 } from "@auth0/auth0-react"
+import DataProvider from "./DataContext"
+import TotalItems from '../components/TotalItems'
 
 const NavBar = ()=> {
     const [isReadyForInstall, setIsReadyForInstall] = useState(false);
@@ -45,7 +46,8 @@ const NavBar = ()=> {
 
     const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0()
     return(
-        <Navbar collapseOnSelect expand="lg" bg="dark" data-bs-theme="dark">
+        <DataProvider>
+            <Navbar collapseOnSelect expand="lg" bg="dark" data-bs-theme="dark">
             <Container>
                 <Navbar.Brand as={Link} to='/'>
                     <img src={Logo} alt="logo" width="30" className="d-inline-block align-top" />
@@ -65,23 +67,25 @@ const NavBar = ()=> {
                                 <NavDropdown.Item as={Link} to='/perfil'>Perfil</NavDropdown.Item>
                                 <NavDropdown.Item onClick={()=> logout()}>Logout</NavDropdown.Item>
                                 {isReadyForInstall && (
-                                    <Button variante='primary' texto='Descargar App' onClick={downloadApp} />
+                                    <NavDropdown.Item onClick={downloadApp}>Descargar App</NavDropdown.Item>
                                 )}
                             </NavDropdown>
-                        ):
-                        <NavDropdown title='Usuario' id="collasible-nav-dropdown">
-                            <NavDropdown.Item onClick={()=> loginWithRedirect()}>Login</NavDropdown.Item>
-                                {isReadyForInstall && (
-                                    <Button variante='primary' texto='Descargar App' onClick={downloadApp} />
-                                )}
-                        </NavDropdown>}
-                        <Nav.Link as={Link} to='/cart'>
-                            <FontAwesomeIcon icon={faCartShopping} />
-                        </Nav.Link>
-                    </Nav>
-                </Navbar.Collapse>
-            </Container>
-        </Navbar>
+                                ):
+                                <NavDropdown NavDropdown title='Usuario' id="collasible-nav-dropdown">
+                                    <NavDropdown.Item onClick={()=> loginWithRedirect()}>Login</NavDropdown.Item>
+                                        {isReadyForInstall && (
+                                            <NavDropdown.Item onClick={downloadApp}>Descargar App</NavDropdown.Item>
+                                        )}
+                                </NavDropdown>}
+                                <Nav.Link as={Link} to='/cart'>
+                                    <FontAwesomeIcon icon={faCartShopping} />
+                                    <TotalItems />
+                                </Nav.Link>
+                            </Nav>
+                        </Navbar.Collapse>
+                </Container>
+            </Navbar>
+        </DataProvider>
     )
 }
 
