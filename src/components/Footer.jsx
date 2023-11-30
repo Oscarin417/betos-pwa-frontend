@@ -2,8 +2,10 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { useState, useEffect } from "react"
 import { Container, Row, Col, NavLink } from "react-bootstrap"
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 const Footer = () => {
+    const {t} = useTranslation()
     const [year, setYear] = useState(new Date().getFullYear())
 
     useEffect(() => {
@@ -18,7 +20,7 @@ const Footer = () => {
                             BETO'S &#174; {year}
                         </p>
                         <NavLink as={Link} to="/tyc" className="text-center text-white">
-                            Terminos y Condiciones
+                            {t('footer_enlace')}
                         </NavLink>
                     </Col>
                 </Row>

@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { DataContext } from "./DataContext"
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js"
 import { useAuth0 } from "@auth0/auth0-react"
+import { useTranslation } from "react-i18next"
 
 const CartTotalContainer = styled.div`
   text-align: center;
@@ -22,6 +23,7 @@ const TotalAmount = styled.h3`
 `;
 
 const CartTotal = () => {
+  const {t} = useTranslation()
   const { isAuthenticated } = useAuth0()
   const clientId = process.env.REACT_APP_PAYPAL_CLIENT_ID
   const { cart } = useContext(DataContext);
@@ -47,14 +49,14 @@ const CartTotal = () => {
 
   return (
     <CartTotalContainer>
-      <TotalAmount className="texto">Total a pagar: ${total}</TotalAmount>
+      <TotalAmount className="texto">{t('carrito_total')}: ${total}</TotalAmount>
       {isAuthenticated 
         ?(
           <PayPalScriptProvider options={{ "client-id": clientId }}>
             <PayPalButtons createOrder={createOrder} onApprove={onApprove} />
           </PayPalScriptProvider>
         ):
-        <p className="texto">Necesitas Inisiar Sesion para poder comprar</p>
+        <p className="texto">{t('carrito_condicion')}</p>
       }
     </CartTotalContainer>
   );

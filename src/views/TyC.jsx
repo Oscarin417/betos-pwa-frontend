@@ -1,8 +1,11 @@
 import React, { useState } from "react"
 import { Container, Row, Col, Card, CardBody } from "react-bootstrap"
 import '../assets/css/base.css'
+import { useTranslation } from "react-i18next";
 
 const TyC = () => {
+  const {t} = useTranslation()
+
   const [isAgreed, setIsAgreed] = useState(false)
 
   const handleAgree = () => {
@@ -15,30 +18,30 @@ const TyC = () => {
         <Col md={12}>
           <Card>
             <CardBody className="texto">
-              <h1>TÉRMINOS Y CONDICIONES</h1>
+              <h1>{t('tc_titulo')}</h1>
               <p>
-                Estos términos y condiciones rigen el uso de este sitio web  y los servicios ofrecidos en este Sitio por Beto's Cosmetics.
+                {t('tc_1')}
               </p>
               <p>
-                Al acceder o utilizar el Sitio, usted acepta estar sujeto a estos Términos. Si no acepta estos Términos, no debe acceder ni utilizar el Sitio.
+                {t('tc_2')}
               </p>
               <p>
-                Beto's se reserva el derecho de modificar estos Términos en cualquier momento. Las modificaciones se publicarán en el Sitio y entrarán en vigor inmediatamente después de su publicación. Su uso continuado del Sitio después de la publicación de cualquier modificación constituye su aceptación de dichos cambios.
+                {t('tc_3')}
               </p>
               <p>
-                Usted debe tener al menos 18 años de edad para usar el Sitio.
+                {t('tc_4')}
               </p>
               <p>
-                Beto's le otorga una licencia limitada, no exclusiva, no transferible y revocable para acceder y utilizar el Sitio para su uso personal. No puede copiar, modificar, distribuir, vender o alquilar ninguna parte del Sitio.
+                {t('tc_5')}
               </p>
               <p>
-                Beto's no garantiza que el Sitio o los servicios ofrecidos en el Sitio estarán disponibles de manera ininterrumpida o libre de errores. Beto's no será responsable por ningún daño que resulte de su uso del Sitio o de los servicios ofrecidos en el Sitio.
+                {t('tc_6')}
               </p>
               <p>
-                Beto's puede, en cualquier momento y sin previo aviso, rescindir su acceso al Sitio o a los servicios ofrecidos en el Sitio.
+                {t('tc_7')}
               </p>
               <p>
-                Estos Términos se regirán e interpretarán de acuerdo con las leyes de la República Mexicana.
+                {t('tc_8')}
               </p>
             </CardBody>
           </Card>

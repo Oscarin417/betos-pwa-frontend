@@ -1,44 +1,61 @@
+import { useMemo } from "react"
 import { Container, Row, Col } from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../assets/css/base.css'
+import { useTranslation } from "react-i18next"
 
 const QSM = ()=> {
+    const {t} = useTranslation()
+    const translatedText = useMemo(()=> ({
+        titulo1: t('c_titulo_1'),
+        titulo2: t('c_titulo_2'),
+        titulo3: t('c_titulo_3'),
+        titulo4: t('c_titulo_4'),
+        texto1: t('c_texto_1'),
+        texto2: t('c_texto_2'),
+        texto3: t('c_texto_3'),
+        b1: t('c_b_1'),
+        b2: t('c_b_2'),
+        b3: t('c_b_3'),
+        b4: t('c_b_4'),
+        b5: t('c_b_5'),
+        p1: t('c_texto_p_1'),
+        p2: t('c_texto_p_2'),
+        p3: t('c_texto_p_3'),
+        p4: t('c_texto_p_4'),
+        p5: t('c_texto_p_5')
+    }), [t])
     return(
         <Container fluid className="contenedor">
-            <h1 className="text-center texto">¿QUIÉNES SOMOS?</h1>
+            <h1 className="text-center texto">{translatedText.titulo1}</h1>
             <Row>
                 <Col>
                     <p className="texto">
-                        BETO'S es tu tienda de cosméticos de confianza. Fundada y establecida en Acámbaro, Guanajuato, BETO'S se enorgullece de ser una empresa 100% mexicana que ha florecido en la industria de la belleza. 
-                        Desde nuestra humilde sede en Guanajuato, 
-                        hemos estado comprometidos en atender las crecientes necesidades del mercado mexicano en el emocionante mundo de los productos de belleza.
+                        {translatedText.texto1}
                     </p>
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    <h2 className="text-center texto">VISIÓN</h2>
+                    <h2 className="text-center texto">{translatedText.titulo2}</h2>
                     <p className="texto">
-                        Nuestra visión en BETO'S es convertirnos en la tienda de cosméticos líder a nivel nacional, 
-                        reconocida por nuestros clientes como la mejor opción para encontrar los productos más innovadores, 
-                        naturales y sostenibles, siempre ofreciendo un servicio excepcional.
+                        {translatedText.texto2}
                     </p>
                 </Col>
                 <Col>
-                    <h2 className="text-center texto">MISIÓN</h2>
+                    <h2 className="text-center texto">{translatedText.titulo3}</h2>
                     <p className="texto">
-                        Nuestra misión en BETO'S es brindar a nuestros clientes una amplia gama de productos cosméticos de alta calidad, 
-                        promoviendo la belleza y la confianza en sí mismos, mientras cuidamos y respetamos el medio ambiente.
+                        {translatedText.texto3}
                     </p>
                 </Col>
                 <Col>
-                    <h2 className="text-center texto">VALORES</h2>
+                    <h2 className="text-center texto">{translatedText.titulo4}</h2>
                     <ul className="texto">
-                        <li><b>Calidad:</b> Nos esforzamos por ofrecer solo productos cosméticos de la más alta calidad, seleccionados cuidadosamente para satisfacer las necesidades de nuestros clientes.</li>
-                        <li><b>Innovación:</b> Buscamos constantemente nuevas tendencias y avances en la industria de la belleza para brindar a nuestros clientes opciones vanguardistas.</li>
-                        <li><b>Sostenibilidad:</b> Nos comprometemos a promover y ofrecer productos respetuosos con el medio ambiente, contribuyendo así a la conservación del planeta.</li>
-                        <li><b>Confianza:</b> Trabajamos con honestidad, transparencia y ética, fomentando la confianza mutua con nuestros clientes, proveedores y colaboradores.</li>
-                        <li><b>Servicio al cliente:</b> Nuestro objetivo es superar las expectativas de nuestros clientes, brindando un servicio personalizado y amable en cada interacción.</li>
+                        <li><b>{translatedText.b1}:</b> {translatedText.p1}</li>
+                        <li><b>{translatedText.b2}:</b> {translatedText.p2}</li>
+                        <li><b>{translatedText.b3}:</b> {translatedText.p3}</li>
+                        <li><b>{translatedText.b4}:</b> {translatedText.p4}</li>
+                        <li><b>{translatedText.b5}:</b> {translatedText.p5}</li>
                     </ul>
                 </Col>
             </Row>

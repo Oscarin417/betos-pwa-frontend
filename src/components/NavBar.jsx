@@ -8,8 +8,11 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons"
 import { useAuth0 } from "@auth0/auth0-react"
 import DataProvider from "./DataContext"
 import TotalItems from '../components/TotalItems'
+import { useTranslation } from "react-i18next"
 
 const NavBar = ()=> {
+    const {t} = useTranslation()
+
     const [isReadyForInstall, setIsReadyForInstall] = useState(false);
 
     useEffect(() => {
@@ -59,22 +62,23 @@ const NavBar = ()=> {
                         
                     </Nav>
                     <Nav>
-                        <Nav.Link as={Link} to='/qsm'>Quines Somos</Nav.Link>
-                        <Nav.Link as={Link} to='/contacto'>Contacto</Nav.Link>
-                        <Nav.Link as={Link} to='/productos'>Productos</Nav.Link>
+                        <Nav.Link as={Link} to='/qsm'>{t('nav_1')}</Nav.Link>
+                        <Nav.Link as={Link} to='/contacto'>{t('nav_2')}</Nav.Link>
+                        <Nav.Link as={Link} to='/productos'>{t('nav_3')}</Nav.Link>
                         {isAuthenticated ?(
                             <NavDropdown title={user.name} id="collasible-nav-dropdown">
-                                <NavDropdown.Item as={Link} to='/perfil'>Perfil</NavDropdown.Item>
-                                <NavDropdown.Item onClick={()=> logout()}>Logout</NavDropdown.Item>
+                                <NavDropdown.Item onClick={()=> logout()}>{t('nav_4')}</NavDropdown.Item>
+                                <NavDropdown.Item href="http://localhost:8000/dashboard/">{t('nav_7')}</NavDropdown.Item>
                                 {isReadyForInstall && (
-                                    <NavDropdown.Item onClick={downloadApp}>Descargar App</NavDropdown.Item>
+                                    <NavDropdown.Item onClick={downloadApp}>{t('nav_5')}</NavDropdown.Item>
                                 )}
                             </NavDropdown>
                                 ):
                                 <NavDropdown NavDropdown title='Usuario' id="collasible-nav-dropdown">
-                                    <NavDropdown.Item onClick={()=> loginWithRedirect()}>Login</NavDropdown.Item>
+                                    <NavDropdown.Item onClick={()=> loginWithRedirect()}>{t('nav_6')}</NavDropdown.Item>
+                                    <NavDropdown.Item href="http://localhost:8000/dashboard/">{t('nav_7')}</NavDropdown.Item>
                                         {isReadyForInstall && (
-                                            <NavDropdown.Item onClick={downloadApp}>Descargar App</NavDropdown.Item>
+                                            <NavDropdown.Item onClick={downloadApp}>{t('nav_5')}</NavDropdown.Item>
                                         )}
                                 </NavDropdown>}
                                 <Nav.Link as={Link} to='/cart'>

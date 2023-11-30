@@ -4,8 +4,10 @@ import { useContext } from 'react'
 import { DataContext } from '../components/DataContext'
 import '../assets/css/base.css'
 import { Container } from 'react-bootstrap'
+import { useTranslation } from 'react-i18next'
 
 const Cart = ()=> {
+    const {t} = useTranslation()
     const {cart} = useContext(DataContext)
 
     return cart.length > 0 ? (
@@ -14,7 +16,7 @@ const Cart = ()=> {
             <CartTotal />
         </Container>
     ): (
-        <h2 className="text-center texto">El carrito esta vacio</h2>
+        <h2 className="text-center texto">{t('carrito_texto')}</h2>
     )
 }
 
